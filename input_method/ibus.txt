@@ -1,0 +1,19 @@
+*******************************************************************************************************************************************************
+ibu是一个框架，可以支持多种输入法，像是pinyin，五笔等。
+
+1,安装ibus框架
+	终端输入以下命令：
+	sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
+
+	im-config
+
+3,重新启动Computer,或者注销当前用户。
+4，安装相应输入法引擎：
+	如安装拼音：
+	sudo apt-get install ibus-pinyin 
+	再如安装五笔：
+	sudo apt-get install ibus-table-wubi 
+
+5,设置Ibus框架
+	im-config
+

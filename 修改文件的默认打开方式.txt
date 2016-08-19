@@ -1,0 +1,37 @@
+修改文件的默认打开方式：
+
+一、修改文件的默认打开方式时需要将对应程序的快捷方式文件(如foxreader.desktop)复制到/usr/share/applications/里；
+	创建快捷方式的方法：
+
+	1、选择“启动应用程序”(Startup applications)
+	2、点击添加，设置名字以及程序地址
+	3、将生成的项目托动到任意目录
+	4、右键选择属性，选择权限，勾选“以程序执行文件”
+	若想添加图标：
+	5、使用vim打开生成的＊.desktop文件，添加一句：Icon=图标路径即可
+	例：	
+		[Desktop Entry]
+		Type=Application
+		Exec=/usr/local/slickedit/bin/vs
+		Icon=/usr/local/slickedit/bitmaps/slickedit.xpm
+		Hidden=false
+		NoDisplay=false
+		X-GNOME-Autostart-enabled=faluse
+		Name[zh_CN]=slickedit
+		Name=slickedit
+		Comment[zh_CN]=slickedit
+		Comment=slickedit
+
+二、ubuntu中有两个文件，跟文件的默认打开方式有关：
+	1、/etc/gnome/defaults.list 保存了全局的打开方式
+	2、~/.local/share/applications/mimeapps.list 保存了个人的打开方式
+	当两个文的设置有冲突，则优先采用全局的设置。
+
+
+修改范例：(注意分号必不可少,文件的类型可查看文件属性获得)
+	空白文件用gedit打开：text/plain=gedit.desktop;
+	c文件用slickedit打开：text/x-csrc=slickedit.desktop;
+	h文件用slickedit打开：text/x-chdr=slickedit.desktop;
+
+
+

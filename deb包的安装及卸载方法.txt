@@ -1,0 +1,5 @@
+安装：
+	sudo dpkg -i *.deb
+	
+卸载：
+	sudo dpkg -r *.deb

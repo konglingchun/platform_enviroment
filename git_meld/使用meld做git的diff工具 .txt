@@ -1,0 +1,19 @@
+setp 1:Ubuntu install meld
+    sudo apt-get install meld
+
+step 2:create a shell script named git_meld.sh
+     mkdir ~/.git_meld
+	vi ~/.git_meld/git_meld.sh
+
+    #!/bin/bash
+    meld $2 $5
+
+step 3: chang git_meld.sh permissions
+    chmod +x ~/.git_meld/git_meld.sh
+
+step 4: config git diff tool
+    git config --global diff.external ~/.git_meld/git_meld.sh
+
+step 5: config git diff tool(unset)
+	git config --unset --global diff.external
+	或直接操作~/.gitconfig文件,修改[diff]选项

@@ -1,0 +1,8 @@
+1、vi /etc/hostname
+	内容改为主机名
+	
+2、vi /etc/hosts
+	修改127.0.1.1后的主机名
+	127.0.0.1	localhost
+	127.0.1.1	主机名
+	

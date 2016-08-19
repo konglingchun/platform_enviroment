@@ -1,0 +1,55 @@
+前几天装了个ＷＩＮＥ，想玩玩windows程序，但是这东西不太好使，能运行的软件比较有限，于是删之
+
+好，问题来了，这东西竟删不完，留了一大堆东西在系统里面
+
+比如：
+
+右键菜单的notepad打开
+
+其它应用程序里面的an wine application等等
+
+
+现附解决办法：
+
+
+先依次执行以下操作
+
+１，卸载之：
+
+sudo apt-get remove wine
+
+２，清除程序目录及系统菜单项,图标等
+
+cd $HOME
+rm -rf .wine
+
+rm -f $HOME/.config/menus/applications-merged/wine*
+
+rm -rf $HOME/.local/share/applications/wine
+
+
+rm -f $HOME/.local/share/desktop-directories/wine*
+
+
+rm -f $HOME/.local/share/icons/????_*.{xpm,png}
+
+
+rm -f $HOME/.local/share/icons/*-x-wine-*.{xpm,png}
+
+
+3,删除一些扩展文件
+
+进入~/.local/share/applications这个目录，
+删除所有类似wine-extension-*.desktop这类的东东
+
+另外一个目录: ~/.local/share/mime/packages
+清除所有 x-wine-extension... 这样的文件
+
+然后还有一些图标选择性删除
+
+这个目录下　：　~/.local/share/icons
+
+把不要的删了，全删也行
+
+
+然后 sudo reboot 重启就ＯＫ了

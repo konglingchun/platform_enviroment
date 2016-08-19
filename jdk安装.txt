@@ -1,0 +1,79 @@
+================================================new================================================
+openjdk1.7:
+	sudo apt-get install openjdk-7-dbg
+	sudo apt-get install openjdk-7-jdk
+	sudo apt-get install openjdk-7-jre-zero
+	sudo apt-get install openjdk-7-jre-lib
+	sudo apt-get install openjdk-7-jre
+	#sudo apt-get install openjdk-7-jre-headless
+	#sudo apt-get install openjdk-7-demo
+	#sudo apt-get install openjdk-7-doc
+
+检验是否安装成功及版本
+     java -version
+     javac -version
+
+版本切换:
+	 如果你的系统之前安装过默认java7，你想在java6和java6之间切换的话可用如下命令
+	 sudo update-java-alternatives -s java-7-oracle
+	 sudo update-java-alternatives -s java-6-sun
+
+版本配置:
+	sudo update-alternatives --config javac
+	sudo update-alternatives --config java
+	sudo update-alternatives --config javap
+	sudo update-alternatives --config jar
+	sudo update-alternatives --config javadoc
+
+================================================old================================================
+方法一：
+	1、下载jdk
+		http://www.oracle.com/technetwork/java/javase/downloads/jdk6downloads-1902814.html
+
+	2、安装Java开发环境（Ubuntu自带openjdk：可java -version查看版本；或执行sudo apt-get install java提示已安装openjdk）
+		sudo mkdir /usr/local/java/
+		sudo chmod +x jdk-6u37-linux-i586.bin
+		sudo mv jdk-6u37-linux-i586.bin /usr/local/java/
+		cd /usr/local/java/
+		sudo ./jdk-6u37-linux-i586.bin
+
+	3、配置jdk环境变
+		sudo vi ~/.bashrc
+		加入下面的设置
+
+		#set java environment
+		export JAVA_HOME=/usr/local/java/jdk1.6.0_43/
+		export PATH=$JAVA_HOME/bin:$PATH
+		export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+	4、java –version　查看效果
+		也可以用echo $JAVA_HOME查看有值否
+
+方法二：
+	1、sudo vi /etc/apt/sources.list
+		添加如下内容
+		#for java6
+		deb http://ppa.launchpad.net/ferramroberto/java/ubuntu natty main
+	2、sudo apt-get update
+	...
+	W: GPG error: http://ppa.launchpad.net natty Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B725097B3ACC3965
+
+	3、sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com B725097B3ACC3965 
+
+	4、sudo apt-get install sun-java6-jdk sun-java6-jre sun-java6-plugin
+		sun-java6-demo sun-java6-source
+
+方法三：
+添加PPA源，然后更新，最后安装。
+
+	sudo add-apt-repository ppa:webupd8team/java
+	sudo apt-get update
+	sudo apt-get install oracle-java6-installer
+		或sudo apt-get install oracle-java7-installer
+
+	sudo apt-get install ppa-purge
+	sudo ppa-purge ppa:webupd8team/java
+
+卸载 Oracle Java 6
+     sudo apt-get remove oracle-java6-installer
+		或sudo apt-get remove oracle-java7-installer

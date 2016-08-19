@@ -1,0 +1,32 @@
+小企鹅输入法(Fcitx)安装步骤如下：
+
+1. 安装fcitx输入法
+	sudo apt-get install fcitx
+
+2. 安装简体中文五笔的库表：
+	sudo apt-get install fcitx-table-wubi 
+	或
+	sudo apt-get install fcitx-table-wbpy
+
+4. 安装拼音输入的库表
+	sudo apt-get install fcitx-sunpinyin
+	或
+	sudo apt-get install fcitx-googlepinyin
+	或
+	sudo apt-get install fcitx-pinyin
+
+5. 安装繁体中文的库表：
+	sudo apt-get install fcitx-table-cangjie
+
+6. 安装通用的输入法的库表: 
+	sudo apt-get install fcitx-table*
+
+7. 安装输入法切换工具
+	sudo apt-get install im-config
+
+8. 设置fcitx为默认语言下的输入法
+	im-config
+
+9.重启
+	sudo shutdown -r now
+

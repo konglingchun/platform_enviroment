@@ -1,0 +1,28 @@
+一、安装ssh服务器：
+	sudo apt-get install openssh-server openssh-client
+	
+二、修改服务器端口号：
+	vi /etc/ssh/sshd_config
+
+三、重启ssh服务(必要时使用)：
+	方法一：sudo restart ssh
+	方法二：sudo service ssh restart
+	方法三：sudo /etc/init.d/ssh resart
+
+四、ssh远程登录方法：
+	ssh 用户名@ssh服务器地址 -p ssh服务器端口号
+	或：
+	ssh -l 用户名 ssh服务器地址 -p ssh服务器端口号
+	
+五、远程传输文件：
+	scp
+		scp  -p  ssh服务器端口号 <本地文件名> <用户名>@<ssh服务器地址>:<上传保存路径即文件名>
+		
+	sftp
+		sftp -P=ssh服务器端口号 用户名@ssh服务器地址
+		或
+		sftp -P ssh服务器端口号 用户名@ssh服务器地址
+	传输文件：
+		上传：put /path/filename(本地) /path/filename(远端主机)
+		下载：get /path/filename(远端主机) /path/filename(本地主机)
+

@@ -1,0 +1,89 @@
+安装配置minicom
+
+一、检测系统是否支持USB转串口
+	lsmod | grep usbserial 
+	如果直接使用电脑串口，而没有用到USB转串口设备，可直接跳过此步。如果有usbserial，说明系统支持USB转串口。在Linux下Usb转串口的线几乎不需要驱动，你插上usb转串口的线后，在你的dev的目录下应该会有一个ttyUSB0的文件，假如有那么恭喜你了，你的这根线现在是可用的了。
+
+二、安装minicom及lrzsz
+	sudo apt-get install minicom lrzsz
+
+三、配置minicom
+	1、minicom -s
+		+-----[configuration]------+
+		| Filenames and paths      |
+		| File transfer protocols  |
+		| Serial port setup        |
+		| Modem and dialing        |
+		| Screen and keyboard      |
+		| Save setup as dfl        |
+		| Save setup as..          |
+		| Exit                     |
+		| Exit from Minicom        |
+		+--------------------------+
+
+	2、选择Serial port setup
+
+		使用电脑串口的串口配置
+			+-----------------------------------------------------------------------+  
+			| A -    Serial Device      : /dev/ttyS0                                |  
+			| B - Lockfile Location     : /var/lock                                 |  
+			| C -   Callin Program      :                                           |  
+			| D -  Callout Program      :                                           |  
+			| E -    Bps/Par/Bits       : 115200 8N1 (改成你的连接的设备的波特率）    |  
+			| F - Hardware Flow Control : No                                        |  
+			| G - Software Flow Control : No                                        |  
+			|                                                                       |  
+			|    Change which setting?                                              |  
+			+-----------------------------------------------------------------------+
+
+
+		使用USB转串口设备的串口配置
+			+-----------------------------------------------------------------------+  
+			| A -    Serial Device      : /dev/ttyUSB0                              |  
+			| B - Lockfile Location     : /var/lock                                 |  
+			| C -   Callin Program      :                                           |  
+			| D -  Callout Program      :                                           |  
+			| E -    Bps/Par/Bits       : 115200 8N1 (改成你的连接的设备的波特率）    |  
+			| F - Hardware Flow Control : No                                        |  
+			| G - Software Flow Control : No                                        |  
+			|                                                                       |  
+			|    Change which setting?                                              |  
+			+-----------------------------------------------------------------------+
+
+	3、Modem and dialing
+		将A—initing string、B－Rest string、K－Hang-up string 这三项的值去掉。
+		然后退出选择 Save as df1,然后选择EXIT from MINICOM 到这里的终端已经设置好了。
+
+	4、Save setup as dfl或Save setup as..
+
+四、打开minicom的颜色
+	minicom -c on
+	使用‘-c on’可以打开minicom对于色彩的支持。
+
+注：
+	xmodem、ymodem、zmodem是modem中采用了的三种文件传输协议，区别在于：
+		xmodem：简单通用，传输信息单位是“包=128B”,传输速度慢，适合电话线路质量差的情况下用  
+		ymodem：由XMODEM演变来，效率可靠性高，包=128*8B；一次传输可发送或接受几个文件  
+		zmodem：用于连续的数据流发送数据，效率更高
+  
+五、使用minicom发文件
+	按下ctrl +a后再按s键
+	选zmodem
+	空格选中文件或进入相应目录
+	回车发送文件
+
+六、使用minicom收文件
+	sz
+	
+七、minicom 中文乱码
+	英文显示：
+		export LC_ALL=POSIX
+		export LANG=POSIX
+	
+	中文显示：
+		export LC_ALL=zh_CN
+		export LANG=zh_CN
+
+八、minicom配置文件
+	minicom默认的配置文件不是/etc/minicom/minirc.dfl，而是在用户主目录下 .minirc.dfl
+	

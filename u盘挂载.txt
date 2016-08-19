@@ -1,0 +1,5 @@
+1、用fdisk -l 来查看U盘的情况
+   Device Boot      Start         End      Blocks  Id System
+/dev/sda1   *         114      215154     3870720   b Win95 FAT32
+2、如果是fat格式的U盘，挂载命令：mount  -t  vfat  /dev/sda1  /mnt/udisk
+3、如果是ntfs格式的U盘，挂载命令：mount  -t  ntfs-3g  /dev/sda1  /mnt/udisk

@@ -1,0 +1,53 @@
+ubuntu下安装samba
+安装命令：
+	sudo apt-get install samba cifs-utils smbclient system-config-samba
+	注：
+	samba：samba核心组件。
+	cifs-utils：支持SMB/CIFS协议的文件系统。
+	smbclient：samba客户端，访问其它机器。
+	system-config-samba：图形界面配置工具。
+
+二、配置
+	1、图形
+		sudo system-config-samba
+	2、字符
+		1、添加、删除用户:
+			添加：
+			sudo smbpasswd -a 账号
+			增加samba账号和密码
+			删除：
+			sudo smbpasswd -x 账号
+			注：
+			账号必须为已经存在的linux用户
+				
+		2、设置Linux共享目录及其权限：
+			文件/etc/samba/smb.conf决定samba的共享目录及权限。修改方法：
+			sudo gedit /etc/samba/smb.conf
+			登录时需要用户名、密码验证:
+				[edu]				#共享名称
+				comment = *		#设置允许访问的用户
+				path = /home/edu	#共享文件夹路径
+				valid users = share	#windows的用户登陆名
+				writeable = yes		#是否可写
+				browseable = yes	#是否可显示
+			登录时无需密码验证:
+				[edu]				#共享名称
+				comment = *		#设置允许访问的用户
+				path = /home/edu	#共享文件夹路径
+				writeable = yes		#是否可写
+				browseable = yes	#是否可显示
+				guest ok = yes
+
+		3、重启samba服务器：
+				方法一：sudo restart smbd
+				方法二：sudo service smbd restart
+				方法三：sudo /etc/init.d/smbd restart
+
+三、访问
+	windows:
+		\\URL
+ 
+	Linux
+		smb://URL
+
+

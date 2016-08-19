@@ -1,0 +1,50 @@
+SSH / Generating SSH keys
+Generating SSH keys
+SSH keys are a way to identify trusted computers, without involving passwords. The steps below will walk you through generating an SSH key and then adding the public key to your GitHub account.
+
+Tip: We recommend that you regularly review your SSH keys list and revoke any that haven't been used in a while.
+Step 1: Check for SSH keys
+
+First, we need to check for existing SSH keys on your computer. Open up the command line and type:
+
+ls -al ~/.ssh
+# Lists the files in your .ssh directory, if they exist
+
+Check the directory listing to see if you already have a public SSH key. The default public key file names are:
+
+    id_dsa.pub
+    id_ecdsa.pub
+    id_ed25519.pub
+    id_rsa.pub
+
+Step 2: Generate a new SSH key
+
+To generate a new SSH key, copy and paste the text below, making sure to substitute in your email address. The default settings are preferred, so when you're prompted to "Enter a file in which to save the key", just press Enter to continue.
+
+ssh-keygen -t rsa -C "your_email@example.com"
+# Creates a new ssh key using the provided email
+# Generating public/private rsa key pair.
+# Enter file in which to save the key (/your_home_path/.ssh/id_rsa):
+
+Next, you'll be asked to enter a passphrase.
+
+Tip: We strongly recommend a very good, secure passphrase. For more information, see Working with SSH key passphrases.
+
+# Enter passphrase (empty for no passphrase): [Type a passphrase]
+# Enter same passphrase again: [Type passphrase again]
+
+Which should give you something like this:
+
+# Your identification has been saved in /your_home_path/.ssh/id_rsa.
+# Your public key has been saved in /your_home_path/.ssh/id_rsa.pub.
+# The key fingerprint is:
+# 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com
+
+Then add your new key to the ssh-agent:
+
+# start the ssh-agent in the background
+eval "$(ssh-agent -s)"
+# Agent pid 59566
+ssh-add ~/.ssh/id_rsa
+
+

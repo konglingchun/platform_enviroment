@@ -1,0 +1,45 @@
+一、NFS服务安装：
+	sudo apt-get install nfs-kernel-server rpcbind nfs-common
+
+二、工作路径配置：
+	sudo gedit /etc/exports 最后一行下加入以下语句：
+	/home    *(rw,sync,no_root_squash)
+	配置文件的格式分为三个字段：Directory hostname (options)
+	即：
+		nfs共享目录名  客户端主机地址 设置选项
+
+	客户端主机地址字段可使用多种形式表示主机地址
+	如：
+		192.168.152.13　指定IP地址的主机
+		nfsclient.test.com　指定域名的主机
+		192.168.1.0/24　指定网段中的所有主机
+		*.test.com　指定域下的所有主机
+		*　所有主机
+	
+	配置选项字段放置在括号中，多个选项间用逗号分隔
+	选项的意义：
+		sync：设置NFS服务器同步写磁盘，这样不会轻易丢失数据，建议使用该选项
+		async：资料先暂存于内存中，而不是直接写入硬盘	
+		ro：设置输出的共享目录只读，与rw不能共同使用
+		rw：设置输出的共享目录可读写，与ro不能共同使用
+		no_root_squash
+		root_squash
+		all_squash
+		anonuid
+		anongid
+
+三、重启服务生效：
+	方法一：sudo service nfs-kernel-server restart
+	方法二：sudo /etc/init.d/nfs-kernel-server restart
+
+四、在PC上测试
+	sudo mount -o nolock 127.0.0.1:/home/  /mnt
+
+五、在嵌入式linux中
+	sudo mount -o nolock,wsize=1024,rsize=1024 172.20.223.83:/home/  /mnt
+
+六、showmount 命令
+	-e：显示当前主机中NFS服务器的输出列表 
+	-d：显示当前主机NFS服务器中已经被NFS客户机挂载使用的共享目录 
+	
+

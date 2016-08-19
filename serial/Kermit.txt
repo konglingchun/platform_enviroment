@@ -1,0 +1,29 @@
+Kermit
+
+一、安装Kermit
+	sudo apt-get install ckermit
+
+二、配置Kermit
+	sudo gedit ~/.kermrc
+	添加如下内容：
+		set line          /dev/ttyUSB0   
+		set speed         115200   
+		set carrier-watch off   
+		set handshake     none   
+		set flow-control none   
+		robust   
+		set file type     bin   
+		set file name     lit   
+		set rec pack      1000   
+		set send pack     1000   
+		set window        5
+
+三、启动Kermit
+	sudo kermit  
+	C-Kermit>connect
+
+四、返回至主界面：
+	Ctrl+\，然后再按c
+	C-Kermit>    
+	输入quit可退出kermit
+
