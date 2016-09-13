@@ -72,3 +72,6 @@ endfunction
 ""set tags=./tags,$HOME/.vim/tags
 set tags=./tags
 
+" Disable whitespace stripping
+let g:spf13_keep_trailing_whitespace = 1
+
