@@ -51,6 +51,15 @@ imap <F6> <ESC>:%!xxd
 nmap <F7> <ESC>vgg=''vG=""<ESC>
 imap <F7> <ESC>vgg=''vG=""<ESC>
 
+"行首：^
+"行末：$
+"空格：\s
+
+"删除行首空格
+":%s/^\+\s//
+"删除行尾空格
+":%s/\s\+$//
+
 " 转换文件的编码
 map <F8> <ESC>:set fileencoding=
 imap <F8> <ESC>:set fileencoding=
