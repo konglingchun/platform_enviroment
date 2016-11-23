@@ -48,17 +48,19 @@ map <F6> <ESC>:%!xxd
 imap <F6> <ESC>:%!xxd 
 
 " 自动排版
-nmap <F7> <ESC>vgg=''vG=""<ESC>
-imap <F7> <ESC>vgg=''vG=""<ESC>
+nmap <F7> <ESC>vgg=''vG=""<ESC>:%s/\s*$//<ESC>:g/^\s*$/d<ESC>
+imap <F7> <ESC>vgg=''vG=""<ESC>:%s/\s*$//<ESC>:g/^\s*$/d<ESC>
 
 "行首：^
 "行末：$
 "空格：\s
 
 "删除行首空格
-":%s/^\+\s//
+":%s/^\s*//
 "删除行尾空格
-":%s/\s\+$//
+":%s/\s*$//
+"删除空行
+":g/^\s*$/d
 
 " 转换文件的编码
 map <F8> <ESC>:set fileencoding=
@@ -83,4 +85,3 @@ set tags=./tags
 
 " Disable whitespace stripping
 let g:spf13_keep_trailing_whitespace = 1
-
