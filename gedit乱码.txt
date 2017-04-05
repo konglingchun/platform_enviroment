@@ -1,7 +1,11 @@
 Gedit 3.x 版本设置 （适用于Ubuntu 11.10及以后）
 命令方式
+14.04:
 	gsettings set org.gnome.gedit.preferences.encodings auto-detected "['UTF-8', 'GB18030', 'GBK', 'GB2312', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 	gsettings set org.gnome.gedit.preferences.encodings auto-detected "['UTF-8', 'GB2312', 'GB18030', 'GBK', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
+16.04:
+	gsettings set org.gnome.gedit.preferences.encodings candidate-encodings  "['UTF-8', 'GB2312', 'GB18030', 'GBK', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
+
 图形方式
 	sudo apt-get install dconf-tools
 	运行dconf-editor
