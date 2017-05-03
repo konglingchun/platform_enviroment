@@ -1,6 +1,7 @@
 ubuntu下安装samba
 安装命令：
 	sudo apt-get install samba cifs-utils smbclient system-config-samba
+	sudo touch /etc/libuser.conf
 	注：
 	samba：samba核心组件。
 	cifs-utils：支持SMB/CIFS协议的文件系统。
