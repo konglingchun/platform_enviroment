@@ -85,3 +85,8 @@ set tags=./tags
 
 " Disable whitespace stripping
 let g:spf13_keep_trailing_whitespace = 1
+
+" 鼠标右击可以复制
+if has('mouse') 
+	set mouse-=a
+endif
