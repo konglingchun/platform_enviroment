@@ -37,8 +37,8 @@ set fileformat=unix
 set ignorecase
 
 " 
-nmap <F2> <ESC>:nohlsearch<CR>:
-imap <F2> <ESC>:nohlsearch<CR>:
+nmap <F2> <ESC>:
+imap <F2> <ESC>:
 
 " 查看正在编辑的文件
 map <F3> <ESC>:ls<CR>
