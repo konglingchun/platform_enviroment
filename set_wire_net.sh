@@ -1,11 +1,11 @@
 #!/bin/sh
 #IP configration
 
-DHCP=0
+DHCP=1
 IP_PRE=192.168.101
 
 #SET REMOTE IP
-REMOTE_IP=$IP_PRE.233
+REMOTE_IP=$IP_PRE.120
 #SET REMOTE PATH
 REMOTE_PATH=/home/klc/work/
 
@@ -14,7 +14,7 @@ NETWORK_CARD=eth0
 #SET LOCAL MOUNT PATH
 MOUNT_PATH=/mnt
 
-if [ DHCP = "1" ];then
+if [ $DHCP = "1" ];then
 	udhcpc started -i $NETWORK_CARD
 else
 	#GATEWAY
@@ -38,15 +38,18 @@ else
 	ifconfig lo up
 	#OPEN NETWORK CARD
 	ifconfig ${NETWORK_CARD} up
-	sleep 3
-	ping $REMOTE_IP -c 3
 fi
+
+sleep 5
+ping www.baidu.com -c 3
+ping ${REMOTE_IP} -c 3
 
 if [ ! -e "$MOUNT_PATH" ] ;then
     mkdir "$MOUNT_PATH" -p
 fi
 
 #MOUNT
-mount -o nolock,wsize=1024,rsize=1024 ${REMOTE_IP}:${REMOTE_PATH} ${MOUNT_PATH}
+umount ${MOUNT_PATH}
+mount -o nolock,wsize=1024,rsize=1024,soft,retry=10,timeo=10 ${REMOTE_IP}:${REMOTE_PATH} ${MOUNT_PATH}
 
-ls ${MOUNT_PATH}
+#ls ${MOUNT_PATH}
