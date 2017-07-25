@@ -8,4 +8,4 @@ sudo apt-get install shutter
 sudo apt-get install octave
 sudo apt-get install clipit
 sudo apt-get install ubuntu-restricted-extras
-sudo apt-get install unace p7zip-rar sharutils rar arj lunzip lzip
+sudo apt-get install unace p7zip-rar unar sharutils rar arj lunzip lzip
