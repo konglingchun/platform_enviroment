@@ -1,3 +1,0 @@
-#unar 这个工具会自动检测文件的编码，解压文件时不会发生乱码的情况
-
-sudo apt-get install unar
