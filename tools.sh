@@ -1,4 +1,5 @@
 sudo apt-get install tree
+sudo apt-get install cmake
 sudo apt-get install filezilla
 sudo apt-get install freemind
 sudo apt-get install okular
