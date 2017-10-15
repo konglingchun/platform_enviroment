@@ -1,0 +1,9 @@
+[alias]
+	st = status
+	dm = difftool --tool=meld
+	dmd = difftool --dir-diff --tool=meld
+[difftool "meld"]
+	#path = /usr/bin/meld
+	cmd = meld "$LOCAL" "$REMOTE"
+[core]
+	editor = vim
