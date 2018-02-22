@@ -38,6 +38,15 @@ ubuntu下安装samba
 				writeable = yes		#是否可写
 				browseable = yes	#是否可显示
 				guest ok = yes
+			例：
+				[share]
+				      path = /home/idata123/share
+				      valid users = idata123
+				      available = yes
+				      browseable = yes
+				      public = yes
+				      writable = yes
+				      guest ok = no
 
 		3、重启samba服务器：
 				方法一：sudo restart smbd
