@@ -19,14 +19,15 @@
 	sudo apt-get install fcitx-table-cangjie
 
 6. 安装通用的输入法的库表: 
-	sudo apt-get install fcitx-table*
+	sudo apt-get install fcitx-table-all
 
 7. 安装输入法切换工具
 	sudo apt-get install im-config
 
-8. 设置fcitx为默认语言下的输入法
+8. 设置fcitx为默认语言下的输入法，注意不要sudo
 	im-config
 
-9.重启
-	sudo shutdown -r now
+9. 安装命令：
+	sudo apt-get install fcitx fcitx-table-wubi fcitx-table-wbpy fcitx-sunpinyin fcitx-googlepinyin fcitx-pinyin fcitx-table-cangjie fcitx-table-all
+
 
