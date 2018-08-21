@@ -1,0 +1,10 @@
+方法一：命令行
+	$sudo wireshark &
+
+方法二：修改GUI启动快捷方式*.desktop文件
+    安装gksu工具
+    找到.desktop文件。Ubuntu在/usr/share/applications下，为<程序名.desktop>
+    在终端下使用root身份修改这个文件
+		sudo vim wireshark.desktop
+		修改 Exec= wireshark %f 为 Exec= gksu "wireshark %f"，保存退出，下次点击该程序图标启动程序时会要求输入root密码
+
