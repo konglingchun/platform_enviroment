@@ -7,3 +7,5 @@
 	cmd = meld "$LOCAL" "$REMOTE"
 [core]
 	editor = vim
+[oh-my-zsh]
+   hide-status = 1
