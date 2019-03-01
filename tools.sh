@@ -1,4 +1,8 @@
 sudo apt-get install -y manpages-posix manpages-posix-dev glibc-doc
+sudo apt-get install -y curl
+sudo apt-get install -y git
+git config --global core.quotepath false
+sudo apt-get install -y gitk
 sudo apt-get install -y tree
 sudo apt-get install -y indent
 sudo apt-get install -y cmake cmake-gui
@@ -10,7 +14,6 @@ sudo apt-get install -y gimp
 sudo apt-get install -y shutter
 sudo apt-get install -y octave
 sudo apt-get install -y clipit
-sudo apt-get install -y gksu
 sudo apt-get install -y mtd-utils
 sudo apt-get install -y u-boot-tools
 sudo apt-get install -y doxygen
