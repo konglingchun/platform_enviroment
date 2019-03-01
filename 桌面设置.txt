@@ -1,0 +1,17 @@
+unity：
+	方法一：
+		unity左侧:
+			gsettings set com.canonical.Unity.Launcher launcher-position Left
+
+		unity底部:
+			gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+
+	方法二：
+		安装unity-tweak-tool
+			sudo apt-get install  unity-tweak-tool
+		打开unity-tweak-tool，并设置即可
+
+gnome：
+	安装　gnome-tweak-tool
+		sudo apt-get install gnome-tweak-tool
+	打开gnome-tweaks，并设置即可
