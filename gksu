@@ -1,0 +1,19 @@
+#将巧妙的存储库添加到系统中：
+
+cat <<EOF | sudo tee /etc/apt/sources.list.d/artful.list
+deb http://archive.ubuntu.com/ubuntu/ artful universe
+EOF
+
+#更新包缓存
+
+sudo apt-get update
+
+#安装gksu包
+
+sudo apt-get install gksu
+
+#从系统中删除 artful 存储库以确保安全
+
+sudo rm /etc/apt/sources.list.d/artful.list
+sudo apt-get update
+
