@@ -20,4 +20,4 @@ sudo apt-get install -y doxygen
 sudo apt-get install -y autoconf automake libtool
 sudo apt-get install -y meld
 sudo apt-get install -y ubuntu-restricted-extras
-sudo apt-get install -y unace p7zip-rar unar sharutils rar arj lunzip lzip
+sudo apt-get install -y unace p7zip-rar unar sharutils rar arj lunzip lzip lzop
