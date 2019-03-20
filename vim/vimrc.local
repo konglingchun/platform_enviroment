@@ -22,7 +22,7 @@ set noexpandtab
 
 "更改配色
 " set background=dark
-colorscheme lucius
+" colorscheme lucius
 
 "用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zM' : 'zR')<CR>
