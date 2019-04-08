@@ -72,7 +72,7 @@ imap <F8> <ESC>:set tags+=~/.vim_tags<CR>
 
 " 生成系统符号文件
 map <F9> <ESC>:call InitCtagsCscopeSys()<CR>
-imap <F9> <ESC>:call InitCtagsCscopeSys()<CR
+imap <F9> <ESC>:call InitCtagsCscopeSys()<CR>
 
 " 生成符号文件
 map <F10> <ESC>:call InitCtagsCscope()<CR>
