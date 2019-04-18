@@ -4,3 +4,4 @@ echo "deb http://old-releases.ubuntu.com/ubuntu/ raring main restricted universe
 sudo apt-get update
 sudo apt-get install ia32-libs-multiarch ia32-libs
 sudo rm -rf /etc/apt/sources.list.d/ia32-libs-raring.list
+sudo apt install libudev-dev:i386

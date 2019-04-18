@@ -1,3 +1,0 @@
-indent命令是大多数Linux系统中都带有的工具,
-用来调整代码的排版
-indent -kr-i8 -ts8 -sob -l80 -ss -bs -psl <filename>
