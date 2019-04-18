@@ -1,5 +1,9 @@
 安装：
 	sudo dpkg -i *.deb
+
+查询：
+	sudo dpkg -l | grep wps
 	
 卸载：
 	sudo dpkg -r *.deb
+
