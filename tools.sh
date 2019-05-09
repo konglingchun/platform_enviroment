@@ -27,4 +27,5 @@ sudo snap install freemind
 #sudo apt-get install -y shutter
 sudo apt install -y flameshot
 sudo apt-get install -y ppa-purge
+sudo apt install cloc
 
