@@ -12,7 +12,6 @@ sudo apt-get install -y filezilla
 sudo apt-get install -y okular
 sudo apt-get install -y kchmviewer
 sudo apt-get install -y gimp
-sudo apt-get install -y shutter
 sudo apt-get install -y octave
 sudo apt-get install -y clipit
 sudo apt-get install -y mtd-utils
@@ -25,6 +24,7 @@ sudo apt-get install -y ubuntu-restricted-extras
 sudo apt-get install -y unace p7zip-rar unar sharutils rar arj lunzip lzip lzop zip
 sudo snap install freemind
 #sudo apt install deepin-screenshot -y
+#sudo apt-get install -y shutter
 sudo apt install -y flameshot
 sudo apt-get install -y ppa-purge
 
