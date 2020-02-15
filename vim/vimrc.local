@@ -15,6 +15,11 @@
 "删除空行
 ":g/^\s*$/d
 
+"显示行号
+set number
+"不显示行号
+"set nonumber
+
 "用space替代tab的输入
 "set expandtab
 "不用space替代tab的输入
