@@ -11,7 +11,10 @@ unity：
 			sudo apt-get install  unity-tweak-tool
 		打开unity-tweak-tool，并设置即可
 
-gnome：
+gnome 桌面优化工具：解锁隐藏的设置
 	安装　gnome-tweak-tool
 		sudo apt-get install gnome-tweak-tool
 	打开gnome-tweaks，并设置即可
+
+dconf-editor:
+	dconf-editor可以一个可以查看、编辑dconf的图形界面工具，可以通过命令行输入命令：dconf-editor或者ubuntu桌面搜索dconf-editor打开。如果没有此工具，安装dconf-tools
