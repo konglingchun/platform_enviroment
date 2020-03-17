@@ -16,3 +16,8 @@
 	2、修改70-ttyusb.rules的内容如下:
 		SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001",MODE="0666"
 	3、重新插入USB转串口设备，普通用户同样可以访问了。
+方法三：
+	dialout是一个group，它主要负责对于串口的权限，安装时使用的账户并不会默认加入dialout组，因此该用户就没有权限可以访问ttyS设备了。
+	解决方法也非常简单：
+	sudo usermod -a -G dialout $USER
+
