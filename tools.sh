@@ -1,3 +1,5 @@
+sudo apt-get install -y ubuntu-restricted-extras
+sudo apt-get install net-tools
 sudo apt-get install -y manpages-posix manpages-posix-dev glibc-doc
 sudo apt-get install -y curl
 sudo apt-get install -y git
@@ -20,9 +22,8 @@ sudo apt-get install -y libxml2-utils xsltproc
 sudo apt-get install -y doxygen tofrodos bison flex gperf
 sudo apt-get install -y autoconf automake libtool
 sudo apt-get install -y meld
-sudo apt-get install -y ubuntu-restricted-extras
 sudo apt-get install -y unace p7zip-rar unar sharutils rar arj lunzip lzip lzop zip
-sudo snap install freemind
+#sudo snap install freemind
 #sudo apt install deepin-screenshot -y
 #sudo apt-get install -y shutter
 sudo apt install -y flameshot
