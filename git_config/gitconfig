@@ -1,11 +1,22 @@
+git config --global alias.st status
+git config --global oh-my-zsh.hide-status 1
+git config --global alias.dm 'difftool --tool=meld'
+git config --global alias.dm 'difftool --dir-diff --tool=meld'
+git config --global core.editor vim
+
+配置好后如下
+
+[core]
+	quotepath = false
+	editor = vim
+[user]
+	name = kong_ling_chun
+	email = kong_ling_chun@sina.com
 [alias]
 	st = status
-	dm = difftool --tool=meld
-	dmd = difftool --dir-diff --tool=meld
+	dm = difftool --dir-diff --tool=meld
 [difftool "meld"]
 	#path = /usr/bin/meld
 	cmd = meld "$LOCAL" "$REMOTE"
-[core]
-	editor = vim
 [oh-my-zsh]
-   hide-status = 1
+	hide-status = 1
