@@ -1,12 +1,15 @@
-"替换 substitute
-":g/p1/s//p2/g	    将文件中所有p1均用p2替代
-":%s/p1/p2/g	    将文件中所有p1均用p2替代
-":n1,n2s/p1/p2/g	将n1到n2行中所有p1均用p2替代
-":s/p1/p2/g	        将当前行中所有p1均用p2替代
+":[range]substitute/from/to/[option]
+"	在[range]指定范围,将“from”替换成“to”;substitute可简写为s
 
-"行首：^
-"行末：$
-"空格：\s
+"g:(global)全局的
+"^:[反向选择] 或 [定位在行首],在[]内代表反向选择,在[]外代表定位在行首
+"$：行末
+"\s：空格
+".:代表一定有一个任意字符
+"	举例: grep -n 'g..d' xx.txt,从xx.txt中找出有开头是g,结尾时d,g和d中间必有两个字符的行
+".*:代表后面若干个字符
+"*:重复前一个字符,0到无穷多次
+"	举例:[xx*] 第一个x必须有,第二个x可有可无,x*是一起的
 
 "删除行首空格
 ":%s/^\s*//
@@ -14,6 +17,12 @@
 ":%s/\s*$//
 "删除空行
 ":g/^\s*$/d
+
+"替换 substitute
+":s/p1/p2/g	    将当前行中所有p1均用p2替代
+":%s/p1/p2/g	    将文件中所有p1均用p2替代
+":n1,n2s/p1/p2/g    将n1到n2行中所有p1均用p2替代
+":g/p1/s//p2/g	    将文件中所有p1均用p2替代
 
 "显示行号
 set number
@@ -29,6 +38,9 @@ set noexpandtab
 " set background=dark
 " colorscheme lucius
 
+"TAB键不显示>
+set nolist
+
 "用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zM' : 'zR')<CR>
 
@@ -41,13 +53,13 @@ set fileformat=unix
 " 搜索时忽略大小写
 set ignorecase
 
-" 
+" 进入命令模式
 nmap <F2> <ESC>:
 imap <F2> <ESC>:
 
-" 转换文件的编码
-map <F3> <ESC>:set fileencoding=
-imap <F3> <ESC>:set fileencoding=
+" 不显示行号
+map <F3> <ESC>:set nonu<CR>
+imap <F3> <ESC>:set nonu<CR>
 
 " 保存退出
 map <F4> <ESC>:x!<CR>
@@ -67,26 +79,13 @@ imap <F6> <ESC>:%!xxd
 nmap <F7> <ESC>vgg=''vG=""<ESC>:%s/\s*$//<ESC>:g/^\s*$/d<ESC>
 imap <F7> <ESC>vgg=''vG=""<ESC>:%s/\s*$//<ESC>:g/^\s*$/d<ESC>
 
-" 符号列表
-" map <F9> <ESC>:TagbarToggle<CR>
-" imap <F9> <ESC>:TagbarToggle<CR>
-
-" 添加系统符号文件
-map <F8> <ESC>:set tags+=~/.vim_tags<CR>
-imap <F8> <ESC>:set tags+=~/.vim_tags<CR>
-
-" 生成系统符号文件
-map <F9> <ESC>:call InitCtagsCscopeSys()<CR>
-imap <F9> <ESC>:call InitCtagsCscopeSys()<CR>
+" 转换文件的编码
+map <F8> <ESC>:set fileencoding=
+imap <F8> <ESC>:set fileencoding=
 
 " 生成符号文件
-map <F10> <ESC>:call InitCtagsCscope()<CR>
-imap <F10> <ESC>:call InitCtagsCscope()<CR>
-
-function InitCtagsCscopeSys()
-    exec "!ctags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__  --file-scope=yes --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS --extra=+qf -R -f ~/.vim_tags /usr/include /usr/local/include"
-"   exec "!cscope -Rbq"
-endfunction
+map <F9> <ESC>:call InitCtagsCscope()<CR>
+imap <F9> <ESC>:call InitCtagsCscope()<CR>
 
 function InitCtagsCscope()
     exec "!ctags --file-scope=yes --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS --extra=+qf -R"
@@ -105,3 +104,4 @@ if has('mouse')
 	" 在输入模式下不可以复制
 	set mouse=n
 endif
+
