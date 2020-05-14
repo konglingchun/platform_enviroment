@@ -4,7 +4,7 @@ git config --global alias.dm 'difftool --tool=meld'
 git config --global alias.dm 'difftool --dir-diff --tool=meld'
 git config --global core.editor vim
 
-配置好后如下
+配置好后.gitconfig内容如下
 
 [core]
 	quotepath = false
