@@ -19,7 +19,7 @@ sudo apt-get install -y clipit
 sudo apt-get install -y mtd-utils
 sudo apt-get install -y u-boot-tools
 sudo apt-get install -y libxml2-utils xsltproc
-sudo apt-get install -y doxygen tofrodos bison flex gperf
+sudo apt-get install -y doxygen doxygen-gui graphviz graphviz-doc tofrodos bison flex gperf
 sudo apt-get install -y autoconf automake libtool
 sudo apt-get install -y meld
 sudo apt-get install -y unace p7zip-rar unar sharutils rar arj lunzip lzip lzop zip
