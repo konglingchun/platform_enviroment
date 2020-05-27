@@ -30,6 +30,9 @@ sudo apt-get install -y flameshot
 sudo apt-get install -y simplescreenrecorder
 sudo apt-get install -y ppa-purge
 sudo apt-get install -y cloc
+sudo apt-get install -y python-markdown
 sudo apt-get install -y python3-pip
 sudo pip3 install --upgrade pip
-
+sudo pip3 install sphinx
+sudo pip3 install sphinx_rtd_theme
+sudo pip3 install recommonmark
