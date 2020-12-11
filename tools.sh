@@ -24,15 +24,19 @@ sudo apt-get install -y autoconf automake libtool
 sudo apt-get install -y meld
 sudo apt-get install -y unace p7zip-rar unar sharutils rar arj lunzip lzip lzop zip
 #sudo snap install freemind
+#截图软件
 #sudo apt-get install deepin-screenshot -y
-#sudo apt-get install -y shutter 
-sudo apt-get install -y flameshot
+sudo apt-get install -y shutter 
+#sudo apt-get install -y flameshot
+#录屏软件
+sudo apt-get install -y peek
 sudo apt-get install -y simplescreenrecorder
+
 sudo apt-get install -y ppa-purge
 sudo apt-get install -y cloc
 sudo apt-get install -y python-markdown
 sudo apt-get install -y python3-pip
-sudo pip3 install --upgrade pip
+sudo pip3 install --upgrade pip3
 sudo pip3 install sphinx
 sudo pip3 install sphinx_rtd_theme
 sudo pip3 install recommonmark
