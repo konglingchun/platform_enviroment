@@ -40,3 +40,6 @@ sudo pip3 install --upgrade pip3
 sudo pip3 install sphinx
 sudo pip3 install sphinx_rtd_theme
 sudo pip3 install recommonmark
+
+sudo apt install ffmpeg imagemagick
+
