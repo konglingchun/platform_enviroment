@@ -51,6 +51,17 @@
         7)上一步结束之后，继续在终端中输入grub-install --root-directory=/mnt /dev/sda
 
             等待一会儿，若出现Installationfinished,No Error Reported则表示成功了
+	若出再如下错误：
+		root@ubuntu:~# grub-install --root-directory=/mnt /dev/sda
+		Installing for i386-pc platform.
+		grub-install: warning: Sector 32 is already in use by the program `FlexNet'; avoiding it.  This software may cause boot or other problems in future.  Please ask its authors not to store data in the boot track.
+		Installation finished. No error reported.
+
+	则使用以下命令可以解决问题：
+		root@ubuntu:~# dd if=/dev/zero of=/dev/sda bs=512 count=1 seek=32
+		1+0 records in
+		1+0 records out
+		512 bytes copied, 0.000336001 s, 1.5 MB/s
 
            (注意:grub-install之间没有空格，--root前面有一个空格，--root前面是两个'-'，/mnt后面有一个空格)
 
