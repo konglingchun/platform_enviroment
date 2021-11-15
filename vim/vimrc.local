@@ -84,17 +84,26 @@ map <F8> <ESC>:set fileencoding=
 imap <F8> <ESC>:set fileencoding=
 
 " 生成符号文件
-map <F9> <ESC>:call InitCtagsCscope()<CR>
-imap <F9> <ESC>:call InitCtagsCscope()<CR>
+map <F9> <ESC>:call Ptags()<CR>
+imap <F9> <ESC>:call Ptags()<CR>
 
-function InitCtagsCscope()
-    exec "!ctags --file-scope=yes --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS --extra=+qf -R"
-"   exec "!cscope -Rbq"
+function Ptags()
+    exec "!ctags --file-scope=yes --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS --extra=+qf -R -f ./.tags"
+endfunction
+
+function Stags()
+    exec "!ctags --file-scope=yes --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS --extra=+qf -R -f ./.sys_tags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__ /usr/include /usr/local/include"
+    set tags+=./.sys_tags;
+endfunction
+
+function Atags()
+	call Ptags()
+	call Stags()
 endfunction
 
 " 设置ctags的寻找路径
 set autochdir
-set tags=./tags;
+set tags=.tags;
 
 " Disable whitespace stripping
 let g:spf13_keep_trailing_whitespace = 1
