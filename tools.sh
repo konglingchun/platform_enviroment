@@ -1,3 +1,7 @@
+sudo apt install -y android-sdk
+sudo apt install -y android-tools-adb
+sudo apt install -y android-tools-fastboot
+
 sudo apt-get install -y ubuntu-restricted-extras
 sudo apt-get install net-tools
 sudo apt-get install -y manpages-posix manpages-posix-dev glibc-doc
