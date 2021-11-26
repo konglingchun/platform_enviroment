@@ -3,7 +3,8 @@
 
 二、工作路径配置：
 	sudo gedit /etc/exports 最后一行下加入以下语句：
-	/home    *(rw,sync,no_root_squash)
+	/home/		   	*(rw,sync,no_root_squash)
+	/home/walter/work/	*(rw,sync,no_root_squash)
 	配置文件的格式分为三个字段：Directory hostname (options)
 	即：
 		nfs共享目录名  客户端主机地址 设置选项

@@ -35,9 +35,18 @@ update-alternatives: error: no alternatives for python
 
 先建立python的组,并添加Python2和Python3的可选项
 
+```
+➜ python2 --version                   
+Python 2.7.18
+➜ python3 --version
+Python 3.8.10
+```
+
+
+
 ```shell
-$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 2 # 添加Python2可选项，优先级为2
-$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1 #添加Python3可选项，优先级为1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 2 # 添加Python2可选项，优先级为2
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1 #添加Python3可选项，优先级为1
 ```
 
 配置python
@@ -109,5 +118,4 @@ $ vim $VIRTUAL_ENV/bin/postactivate  #前提是已经进入对应的虚拟环境
 ```
 cd  /path/to/your/project
 ```
-
 

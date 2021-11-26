@@ -25,28 +25,34 @@ ubuntu下安装samba
 			文件/etc/samba/smb.conf决定samba的共享目录及权限。修改方法：
 			sudo gedit /etc/samba/smb.conf
 			登录时需要用户名、密码验证:
-				[edu]				#共享名称
-				comment = *		#设置允许访问的用户
+			[edu]				#共享名称
+				comment = *		#注释
 				path = /home/edu	#共享文件夹路径
 				valid users = share	#windows的用户登陆名
-				writeable = yes		#是否可写
+				writeable = yes	#是否可写
 				browseable = yes	#是否可显示
 			登录时无需密码验证:
-				[edu]				#共享名称
-				comment = *		#设置允许访问的用户
+			[edu]				#共享名称
+				comment = *		#注释
 				path = /home/edu	#共享文件夹路径
-				writeable = yes		#是否可写
+				writeable = yes	#是否可写
 				browseable = yes	#是否可显示
 				guest ok = yes
 			例：
-				[share]
-				      path = /home/idata123/share
-				      valid users = idata123
-				      available = yes
-				      browseable = yes
-				      public = yes
-				      writable = yes
-				      guest ok = no
+			[share]
+				comment = share
+				path = /home/walter/share
+				browseable = yes
+				available = yes
+				writeable = yes
+				valid users = walter
+			[work]
+				comment = work
+				path = /home/walter/work
+				browseable = yes
+				available = yes
+				writeable = yes
+				valid users = walter
 
 		3、重启samba服务器：
 				方法一：sudo restart smbd
@@ -59,5 +65,15 @@ ubuntu下安装samba
  
 	Linux
 		smb://URL
+		
+四、ubuntu20.04
+	访问不了共享文件的解决方法
+[global]
+	ntlm auth = yes
+	server min protocol = NT1
+	client min protocol = NT1
+	client max protocol = SMB3
+
+	
 
 
