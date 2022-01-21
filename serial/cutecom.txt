@@ -1,0 +1,6 @@
+安装工具：
+	$sudo apt-get install cutecom
+
+启动:
+	$cutecom
+

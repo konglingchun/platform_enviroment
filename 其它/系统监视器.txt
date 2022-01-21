@@ -1,0 +1,9 @@
+通过源安装：
+	sudo add-apt-repository ppa:alexeftimie/ppa
+	sudo apt-get update
+	sudo apt-get install indicator-sysmonitor
+
+	sudo apt-get install ppa-purge
+	sudo ppa-purge ppa:alexeftimie/ppa
+开机运行：
+	将indicator-sysmonitor命令添加到启动设置即可

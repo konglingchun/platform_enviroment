@@ -1,0 +1,15 @@
+1、在本地的git仓库添加一个远程仓库
+	git remote add 远程仓库名 ssh://你的用户名@你的IP/仓库路径
+
+2、将本地的master分支跟踪到远程仓库
+	 git push 远程仓库名 master
+
+3、显示远程仓库信息
+	git remote show 远程仓库
+
+4、使用其他局域网的电脑测试你的仓库
+	git clone ssh://你的用户名@你的IP/仓库路径
+
+5、修改远程仓库地址
+	git remote set-url 远程仓库名 远程仓库地址
+

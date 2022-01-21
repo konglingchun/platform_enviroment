@@ -1,0 +1,20 @@
+将一般的用户加入sudo组is not in the sudoers file. This incident will be reported解决方法
+
+在一般用户的shell下执行sudo命令提示xxx is not in the sudoers file. This incident will be reported
+
+解决方法：
+	$whereis sudoers	找出文件所在的位置，默认都是/etc/sudoers
+
+
+默认新建的用户不在sudo组，需要编辑/etc/sudoers文件将用户加入，该文件只能使用visudo命令，
+1) 首先需要切换到root, su - 
+	(注意有- ，这和su是不同的，在用命令"su"的时候只是切换到root，但没有把root的环境变量传过去，还是当前用乎的环境变量，用"su -"命令将环境变量也一起带过去，就象和root登录一样)
+2) 然后　visudo 或者 vim /etc/sudoers, visudo 这个和vi的用法一样，由于可能会有人不太熟悉vi，所以简要说一下步骤
+移动光标，到一行root ALL=(ALL)   ALL的下一行，按i，插入模式，输入your_user_name ALL=(ALL)   ALL
+	然后按Esc，
+	输入“：”
+	再输入:wq
+	保存退出
+	这样就把自己加入了sudo组，可以使用sudo命令了。
+3) 默认5分钟后刚才输入的sodo密码过期，下次sudo需要重新输入密码，如果觉得在sudo的时候输入密码麻烦，把刚才的输入换成如下内容即可：your_user_name ALL=(ALL) NOPASSWD: ALL
+

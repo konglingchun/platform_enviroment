@@ -1,0 +1,2 @@
+find -type f -iname "*.c" -exec cat {} \; | wc -l
+find -type f -iname "*.[c|h]" | xargs cat | wc -l

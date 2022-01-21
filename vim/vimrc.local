@@ -24,22 +24,54 @@
 ":n1,n2s/p1/p2/g    将n1到n2行中所有p1均用p2替代
 ":g/p1/s//p2/g	    将文件中所有p1均用p2替代
 
+"查看可输入的特殊字符
+":digraphs
+":help digraph-table
+"特殊字符输入:输入模式下先按前导键<Ctrl-V><字符编码>
+
+"显示目前所有的环境参数设定值
+" set all
+
+"自动排版
+set autoindent
+"set noautoindent
+
 "显示行号
 set number
 "不显示行号
 "set nonumber
 
 "用space替代tab的输入
+"set tabstop=4
 "set expandtab
 "不用space替代tab的输入
 set noexpandtab
 
+"设置非可见字符显示
+set listchars=trail:~,extends:>,precedes:< 
+set listchars+=eol:$
+set listchars+=tab:>-
+set listchars+=space:·
+set nolist
+
+"非可见字符切换
+nmap <F3> :set invlist<CR>
+imap <F3> <ESC>:set invlist<CR>
+
+set binary
+
+set noeol
+
+"高亮搜索
+"set nohlsearch
+set hlsearch
+
+set ruler
+set showmode
+
 "更改配色
 " set background=dark
 " colorscheme lucius
-
-"TAB键不显示>
-set nolist
 
 "用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zM' : 'zR')<CR>
@@ -58,14 +90,14 @@ nmap <F2> <ESC>:
 imap <F2> <ESC>:
 
 " 不显示行号
-map <F3> <ESC>:set nonu<CR>
-imap <F3> <ESC>:set nonu<CR>
+"map <F3> <ESC>:set nonu<CR>
+"imap <F3> <ESC>:set nonu<CR>
 
 " 保存退出
 map <F4> <ESC>:x!<CR>
 imap <F4> <ESC>:x!<CR>
 
-" 设置或取消粘贴模式，在粘贴模式下会原样粘贴内容
+" F5快捷键于paste模式与否之间转化，防止自动缩进
 set pastetoggle=<F5>
 
 " :%!xxd		将当前文本转换为16进制格式
@@ -88,11 +120,11 @@ map <F9> <ESC>:call Ptags()<CR>
 imap <F9> <ESC>:call Ptags()<CR>
 
 function Ptags()
-    exec "!ctags --file-scope=yes --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS --extra=+qf -R -f ./.tags"
+    exec "!ctags --extras=+F --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS -R -f ./.tags"
 endfunction
 
 function Stags()
-    exec "!ctags --file-scope=yes --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS --extra=+qf -R -f ./.sys_tags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__ /usr/include /usr/local/include"
+    exec "!ctags --extras=+F --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS -R -f ./.sys_tags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__ /usr/include /usr/local/include"
     set tags+=./.sys_tags;
 endfunction
 
@@ -108,7 +140,15 @@ set tags=.tags;
 " Disable whitespace stripping
 let g:spf13_keep_trailing_whitespace = 1
 
-" 鼠标右击复制设置
+"鼠标右击复制设置
+"n 普通模式
+"v 可视模式
+"i 插入模式
+"c 命令行模式
+"h 在帮助文件里，以上所有的模式
+"a 以上所有的模式
+"r 跳过 |hit-enter| 提示
+"A 在可视模式下自动选择
 if has('mouse') 
 	" 在输入模式下不可以复制
 	set mouse=n

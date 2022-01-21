@@ -37,10 +37,32 @@
 	sudo mount -o nolock 127.0.0.1:/home/  /mnt
 
 五、在嵌入式linux中
-	sudo mount -o nolock,wsize=1024,rsize=1024 172.20.223.83:/home/  /mnt
+	sudo mount -o intr,nolock,wsize=1024,rsize=1024 192.168.0.101:/home/  /mnt
+	
+	mount -o nolock,wsize=1024,rsize=1024,soft,retry=10,timeo=10 ${SERVER_IP}:${NFS_SERVER_PATH} ${NFS_LOCAL_MOUNT_PATH}
+	1、rsize和wsize决定了网络文件系统（NFS）一次网络交互所能够读写的数据块的大小，rsize和wsize的大小对网络文件系统（NFS）的性能有重要影响。
+	2、当发生网络或NFS服务器端故障时，选用hard-mount选项会引起NFS客户端的程序挂起，而soft-mount则不会。
+	3、soft-mount: 当客户端加载NFS不成功时，重试retry设定的次数.如果retry次都不成功，则放弃此操作，返回错误信息 "Connect time out"
+	4、hard-mount: 当客户端加载NFS不成功时,一直重试，直到NFS服务器有响应。hard-mount 是系统的缺省值。
+		在选定hard-mount 时，最好同时选 intr , 允许中断系统的调用请求，避免引起系统的挂起。当NFS服务器不能响应NFS客户端的 hard-mount请求时， NFS客户端会显示"NFS server hostname not responding, still trying
+
 
 六、showmount 命令
 	-e：显示当前主机中NFS服务器的输出列表 
 	-d：显示当前主机NFS服务器中已经被NFS客户机挂载使用的共享目录 
 	
+七、开发板挂载时提示协议不支持
+	具体错误如下:
+		mount: mounting 192.168.31.75:/home/why/SSD202_Project on /mnt failed: Protocol not supported
+	解决方法：由于ubuntu 20.04 nfs默认支持协议3和协议4，但是开发板uboot默认启动的是协议2，若想要求 nfs 支持协议2。
+	打开文件
+		vim /etc/default/nfs-kernel-server
+	在文件中末尾增加内容
+		RPCNFSDOPTS="--nfs-version 2,3,4 --debug --syslog"
+	保存重启下nfs,重启指令
+		sudo /etc/init.d/nfs-kernel-server restart
 
+八、开发板挂载时提示超时
+	rpcbind: server localhost not responding, timed out
+	解决办法：加上“-o nolock”参数
+	mount -t nfs -o nolock 192.168.31.75:/home/nfs_test /mnt

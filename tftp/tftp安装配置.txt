@@ -1,0 +1,14 @@
+tftp安装配置
+	1.安装tftp(tftpd-hpa是服务器端、tftp-hpa是客户端)
+		sudo apt-get install tftpd-hpa
+		sudo apt-get install tftp-hpa
+	2.配置TFTP服务器
+		vi /etc/default/tftpd-hpa
+		修改TFTP_DIRECTORY="/var/lib/tftpboot"为：
+			TFTP_DIRECTORY="tftp根目录" #服务器目录,需要设置权限为777,chomd 777
+		也可以不修改下载目录的配置文件，直接将下载目录挂载至/var/lib/tftpboot目录
+	3.重新启动TFTP服务
+		sudo service tftpd-hpa restart
+	4.测试
+		tftp -g -r test_src -l test_dest 192.168.21.192
+
