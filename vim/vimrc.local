@@ -78,7 +78,16 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zM' : 'zR')<CR>
 
 " 设定默认解码
 set fenc=utf-8
-set fencs=utf-8,usc-bom,gb2312,gb18030,gbk,euc-jp,cp936
+set fencs=utf-8,gb2312,gb18030,gbk,cp936,ISO-8859-15,usc-bom,euc-jp,utf-16
+
+" 查看现在文本的编码
+"set fileencoding
+
+" 转换当前文本的编码为指定的编码
+"set fenc=编码
+
+" 以指定的编码显示文本，但不保存到文件中
+"set enc=编码
 
 set fileformat=unix
 
@@ -119,12 +128,17 @@ imap <F8> <ESC>:set fileencoding=
 map <F9> <ESC>:call Ptags()<CR>
 imap <F9> <ESC>:call Ptags()<CR>
 
+"taglist 快捷键
+"s 更改排序方式，在按名字排序和按出现顺序排序间切换
+"x taglist窗口放大和缩小，方便查看较长的tag
+"q 关闭taglist窗口
+
 function Ptags()
-    exec "!ctags --extras=+F --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS -R -f ./.tags"
+    exec "!ctags --extra=+fq --languages=C,C++,Make,Sh,Java,Python,Go --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS -R -f ./.tags"
 endfunction
 
 function Stags()
-    exec "!ctags --extras=+F --langmap=c:.c.x --languages=c,c++ --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS -R -f ./.sys_tags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__ /usr/include /usr/local/include"
+    exec "!ctags --extra=+fq --languages=C,C++,Make,Sh,Java,Python,Go --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS -R -f ./.sys_tags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__ /usr/include /usr/local/include"
     set tags+=./.sys_tags;
 endfunction
 
