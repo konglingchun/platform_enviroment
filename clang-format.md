@@ -2,7 +2,7 @@
 
 ubuntu环境下 sudo apt-get install clang-format
 
-## 配置.clang-format
+## 配置clang-format
 
 在家目录下创建.clang-format文件，把下面内容写进去。目前配置基本能帮助大家按照高通风格对齐(除了CAMX_LOG/CHX_LOG看上去目前还不是最优)，也可以自行修改。
 
@@ -19,17 +19,18 @@ AlignConsecutiveAssignments:  true
 AlignConsecutiveDeclarations:  true
 ```
 
-### git commit -s后 用这个命令检查提交的代码，有问题会自动修改文件
+### 格式化
 
 ```shell
-git diff -U0 HEAD^ | clang-format-diff -i -p1
-```
+格式化指定文件：
+clang-format -i vivocode.cpp
 
-然后
+格式化diff：
+git diff | clang-format-diff -i -binary clang-format -p1
 
-```shell
-git diff  git add git commit --amend
-git diff
-git add .
-git commit --amend
+格式化commit：
+git diff -U0 HEAD^ | clang-format-diff -i -binary clang-format -p1
+
+格式化目录所有文件：
+find ./ -name *.cpp -o -name *.h| xargs clang-format -i
 ```

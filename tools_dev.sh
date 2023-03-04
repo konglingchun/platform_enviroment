@@ -14,13 +14,16 @@ sudo apt install -y okular
 sudo apt install -y kchmviewer
 sudo apt install -y bc octave libgmp-dev libmpfr-dev
 sudo apt install -y clipit
+sudo apt install -y psmisc
+sudo apt install -y gthumb webp
 sudo apt install -y tree
 sudo apt install -y iptux
-sudo apt install -y meld
+sudo apt install -y meld patch
 sudo apt install -y curl
 sudo apt install -y wget
 sudo apt install -y axel
-sudo apt install -y unace p7zip-rar tar unar rar sharutils arj lunzip lzip lzop zip unzip
+sudo apt install -y gawk
+sudo apt install -y unace p7zip-rar tar unar rar sharutils arj lunzip lzip lzop zip unzip bzip2 libz-dev
 sudo apt install -y chromium-browser
 #sudo snap install freemind
 
@@ -34,7 +37,7 @@ sudo apt install -y indent
 sudo apt install -y manpages-posix manpages-posix-dev glibc-doc
 sudo apt install -y inetutils-traceroute
 sudo apt install -y net-tools
-sudo apt install -y openssh-server openssh-client
+sudo apt install -y openssh-server openssh-client sshpass
 sudo apt install -y silversearcher-ag
 sudo apt install -y mtd-utils
 sudo apt install -y u-boot-tools
@@ -65,7 +68,7 @@ sudo apt install -y golang-go
 
 sudo apt install -y cmake cmake-gui
 sudo apt install -y autoconf automake libtool
-sudo apt install -y gnupg gperf build-essential gcc-multilib g++-multilib m4 
+sudo apt install -y gnupg gperf build-essential binutils gcc-multilib g++-multilib m4 yasm
 
 sudo apt install -y lib32ncurses5-dev libncurses5-dev libncurses5-dev:i386 
 sudo apt install -y libreadline-dev libreadline6-dev:i386
@@ -74,7 +77,7 @@ sudo apt install -y libx11-dev libx11-dev:i386
 sudo apt install -y libc6-dev-i386 libc6-dev
 
 sudo apt install -y x11proto-core-dev lib32z-dev ccache libgl1-mesa-dev 
-sudo apt install -y dos2unix doxygen doxygen-gui graphviz graphviz-doc tofrodos bison flex cpio xsltproc
+sudo apt install -y dos2unix doxygen doxygen-gui asciidoc graphviz graphviz-doc tofrodos bison flex gettext cpio xsltproc autopoint
 sudo apt install -y libxml2-utils libxml2-dev libxml-simple-perl libxml-parser-perl libswitch-perl 
 sudo apt install -y dpkg-dev libsdl1.2-dev libesd0-dev
 sudo apt install -y libssl-dev libcurl4-openssl-dev libp11-dev

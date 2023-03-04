@@ -29,6 +29,9 @@
 ":help digraph-table
 "特殊字符输入:输入模式下先按前导键<Ctrl-V><字符编码>
 
+"将无名寄存器映射都系统剪切板，将复制、删除的内容保存到剪切板寄存器
+set clipboard=unnamedplus
+
 "显示目前所有的环境参数设定值
 " set all
 
@@ -55,8 +58,8 @@ set listchars+=space:·
 set nolist
 
 "非可见字符切换
-nmap <F3> :set invlist<CR>
-imap <F3> <ESC>:set invlist<CR>
+nmap <F8> :set invlist<CR>
+imap <F8> <ESC>:set invlist<CR>
 
 set binary
 
@@ -72,6 +75,7 @@ set showmode
 "更改配色
 " set background=dark
 " colorscheme lucius
+" colorscheme torte
 
 "用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zM' : 'zR')<CR>
@@ -98,9 +102,8 @@ set ignorecase
 nmap <F2> <ESC>:
 imap <F2> <ESC>:
 
-" 不显示行号
-"map <F3> <ESC>:set nonu<CR>
-"imap <F3> <ESC>:set nonu<CR>
+map <F3> <ESC>:ls<CR>
+imap <F3> <ESC>:ls<CR>
 
 " 保存退出
 map <F4> <ESC>:x!<CR>
@@ -121,12 +124,15 @@ nmap <F7> <ESC>vgg=''vG=""<ESC>:%s/\s*$//<ESC>:g/^\s*$/d<ESC>
 imap <F7> <ESC>vgg=''vG=""<ESC>:%s/\s*$//<ESC>:g/^\s*$/d<ESC>
 
 " 转换文件的编码
-map <F8> <ESC>:set fileencoding=
-imap <F8> <ESC>:set fileencoding=
+" map <F8> <ESC>:set fileencoding=
+" imap <F8> <ESC>:set fileencoding=
 
 " 生成符号文件
 map <F9> <ESC>:call Ptags()<CR>
 imap <F9> <ESC>:call Ptags()<CR>
+
+map <F10> <ESC>:call Stags()<CR>
+imap <F10> <ESC>:call Stags()<CR>
 
 "taglist 快捷键
 "s 更改排序方式，在按名字排序和按出现顺序排序间切换

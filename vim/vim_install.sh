@@ -1,5 +1,5 @@
 sudo apt-get remove vim-common
-sudo apt-get install -y vim vim-doc vim-scripts vim-runtime exuberant-ctags
+sudo apt-get install -y vim vim-doc vim-scripts vim-gtk vim-runtime exuberant-ctags
 sudo apt-get install -y curl
 sudo apt-get install -y git
 
