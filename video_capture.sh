@@ -35,3 +35,4 @@ sudo apt install -y ffmpeg
 #图片处理
 sudo apt install -y imagemagick imagej
 sudo apt install -y gimp
+sudo apt install -y pinta

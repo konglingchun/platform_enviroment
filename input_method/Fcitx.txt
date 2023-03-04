@@ -1,5 +1,11 @@
 小企鹅输入法(Fcitx)安装步骤如下：
 
+remove ibus:
+sudo apt-get remove ibus
+sudo apt-get purge ibus
+sudo apt-get autoremove
+reboot
+  
 1. 安装fcitx输入法
 	sudo apt-get install fcitx
 

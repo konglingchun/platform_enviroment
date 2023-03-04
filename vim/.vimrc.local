@@ -1,0 +1,176 @@
+":[range]substitute/from/to/[option]
+"	在[range]指定范围,将“from”替换成“to”;substitute可简写为s
+
+"g:(global)全局的
+"^:[反向选择] 或 [定位在行首],在[]内代表反向选择,在[]外代表定位在行首
+"$：行末
+"\s：空格
+".:代表一定有一个任意字符
+"	举例: grep -n 'g..d' xx.txt,从xx.txt中找出有开头是g,结尾时d,g和d中间必有两个字符的行
+".*:代表后面若干个字符
+"*:重复前一个字符,0到无穷多次
+"	举例:[xx*] 第一个x必须有,第二个x可有可无,x*是一起的
+
+"删除行首空格
+":%s/^\s*//
+"删除行尾空格
+":%s/\s*$//
+"删除空行
+":g/^\s*$/d
+
+"替换 substitute
+":s/p1/p2/g	    将当前行中所有p1均用p2替代
+":%s/p1/p2/g	    将文件中所有p1均用p2替代
+":n1,n2s/p1/p2/g    将n1到n2行中所有p1均用p2替代
+":g/p1/s//p2/g	    将文件中所有p1均用p2替代
+
+"查看可输入的特殊字符
+":digraphs
+":help digraph-table
+"特殊字符输入:输入模式下先按前导键<Ctrl-V><字符编码>
+
+"将无名寄存器映射都系统剪切板，将复制、删除的内容保存到剪切板寄存器
+set clipboard=unnamedplus
+
+"显示目前所有的环境参数设定值
+" set all
+
+"自动排版
+set autoindent
+"set noautoindent
+
+"显示行号
+set number
+"不显示行号
+"set nonumber
+
+"用space替代tab的输入
+"set tabstop=4
+"set expandtab
+"不用space替代tab的输入
+set noexpandtab
+
+"设置非可见字符显示
+set listchars=trail:~,extends:>,precedes:< 
+set listchars+=eol:$
+set listchars+=tab:>-
+set listchars+=space:·
+set nolist
+
+"非可见字符切换
+nmap <F8> :set invlist<CR>
+imap <F8> <ESC>:set invlist<CR>
+
+set binary
+
+set noeol
+
+"高亮搜索
+"set nohlsearch
+set hlsearch
+
+set ruler
+set showmode
+
+"更改配色
+" set background=dark
+" colorscheme lucius
+" colorscheme torte
+
+"用空格键来开关折叠
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zM' : 'zR')<CR>
+
+" 设定默认解码
+set fenc=utf-8
+set fencs=utf-8,gb2312,gb18030,gbk,cp936,ISO-8859-15,usc-bom,euc-jp,utf-16
+
+" 查看现在文本的编码
+"set fileencoding
+
+" 转换当前文本的编码为指定的编码
+"set fenc=编码
+
+" 以指定的编码显示文本，但不保存到文件中
+"set enc=编码
+
+set fileformat=unix
+
+" 搜索时忽略大小写
+set ignorecase
+
+" 进入命令模式
+nmap <F2> <ESC>:
+imap <F2> <ESC>:
+
+map <F3> <ESC>:ls<CR>
+imap <F3> <ESC>:ls<CR>
+
+" 保存退出
+map <F4> <ESC>:x!<CR>
+imap <F4> <ESC>:x!<CR>
+
+" F5快捷键于paste模式与否之间转化，防止自动缩进
+set pastetoggle=<F5>
+
+" :%!xxd		将当前文本转换为16进制格式
+" :%!od			将当前文本转换为16进制格式
+" :%!xxd -r		将当前文件转换回文本格式
+" :%!xxd -c n	将当前文本转换为16进制格式,并每行显示n个字节。
+map <F6> <ESC>:%!xxd 
+imap <F6> <ESC>:%!xxd 
+
+" 自动排版
+nmap <F7> <ESC>vgg=''vG=""<ESC>:%s/\s*$//<ESC>:g/^\s*$/d<ESC>
+imap <F7> <ESC>vgg=''vG=""<ESC>:%s/\s*$//<ESC>:g/^\s*$/d<ESC>
+
+" 转换文件的编码
+" map <F8> <ESC>:set fileencoding=
+" imap <F8> <ESC>:set fileencoding=
+
+" 生成符号文件
+map <F9> <ESC>:call Ptags()<CR>
+imap <F9> <ESC>:call Ptags()<CR>
+
+map <F10> <ESC>:call Stags()<CR>
+imap <F10> <ESC>:call Stags()<CR>
+
+"taglist 快捷键
+"s 更改排序方式，在按名字排序和按出现顺序排序间切换
+"x taglist窗口放大和缩小，方便查看较长的tag
+"q 关闭taglist窗口
+
+function Ptags()
+    exec "!ctags --extra=+fq --languages=C,C++,Make,Sh,Java,Python,Go --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS -R -f ./.tags"
+endfunction
+
+function Stags()
+    exec "!ctags --extra=+fq --languages=C,C++,Make,Sh,Java,Python,Go --links=yes --c-kinds=+px --c++-kinds=+px --fields=+iafksS -R -f ./.sys_tags -I __THROW -I __attribute_pure__ -I __nonnull -I __attribute__ /usr/include /usr/local/include"
+    set tags+=./.sys_tags;
+endfunction
+
+function Atags()
+	call Ptags()
+	call Stags()
+endfunction
+
+" 设置ctags的寻找路径
+set autochdir
+set tags=.tags;
+
+" Disable whitespace stripping
+let g:spf13_keep_trailing_whitespace = 1
+
+"鼠标右击复制设置
+"n 普通模式
+"v 可视模式
+"i 插入模式
+"c 命令行模式
+"h 在帮助文件里，以上所有的模式
+"a 以上所有的模式
+"r 跳过 |hit-enter| 提示
+"A 在可视模式下自动选择
+if has('mouse') 
+	" 在输入模式下不可以复制
+	set mouse=n
+endif
+

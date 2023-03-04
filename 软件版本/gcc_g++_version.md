@@ -7,12 +7,12 @@
 	sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 1
 	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1
 
-	sudo apt-get install gcc-7
-	sudo apt-get install g++-7
-	sudo apt-get install gcc-7-multilib
-	sudo apt-get install g++-7-multilib
-	sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 2
-	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 2
+	sudo apt-get install gcc-11
+	sudo apt-get install g++-11
+	sudo apt-get install gcc-11-multilib
+	sudo apt-get install g++-11-multilib
+	sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 2
+	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 2
 ```
 
 
