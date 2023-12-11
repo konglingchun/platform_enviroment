@@ -48,6 +48,7 @@ sudo apt install -y inetutils-traceroute
 sudo apt install -y net-tools
 sudo apt install -y openssh-server openssh-client sshpass
 sudo apt install -y fd-find
+sudo ln -s /usr/lib/cargo/bin/fd /usr/bin/fd
 sudo apt install -y silversearcher-ag
 sudo apt install -y mtd-utils
 sudo apt install -y u-boot-tools
