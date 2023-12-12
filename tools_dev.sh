@@ -74,6 +74,7 @@ sudo apt install -y ${openjdk_ver}-jre
 sudo apt install -y perl
 sudo apt install -y golang-go
 
+sudo apt install -y scons
 sudo apt install -y cmake cmake-gui
 sudo apt install -y autoconf automake libtool
 sudo apt install -y gnupg gperf build-essential binutils gcc-multilib g++-multilib m4 yasm
