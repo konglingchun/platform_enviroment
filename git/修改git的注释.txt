@@ -1,0 +1,34 @@
+修改git的注释  
+	
+1. 最近提交，还没有push，那么：
+
+git commit --amend
+
+这样就可以直接修改注释了。
+
+2. push之前提交的历史注释
+
+git rebase -i head~3
+
+  表示要修改当前版本的倒数第三次状态，这个命令出来之后，会出来三行东东：
+
+pick f9173fc Fix wrong name 'path_filename'
+pick 3fddde0 Change versiton to 0.2: Add share option
+pick 5962845 Change platform section name from [arch-platform-name] to [name:platform]
+...
+
+ 如果你要修改哪个，就把那行的pick改成edit，然后保存退出，这时候会提示
+
+Stopped at 4c85552... Change versiton to 0.2: Add share option
+You can amend the commit now, with
+git commit --amend
+Once you are satisfied with your changes, run
+git rebase --continue
+
+按照提示进行修改即可。
+
+3. push 之后，已经存放到远程服务器上的修改
+
+如果push之后，那么也可以按照上面的方法进行修改，只是提交的时候需要使用 -f 强制提交
+
+git push -f origin master

@@ -1,0 +1,6 @@
+生成patch的方法：
+	git add 修改或添加的文件
+	git commit -m "log" (本地提交更改)
+	git log -2 (查看近2次历史日志,获得commitid)
+	git diff commitid_orginal commitid_new (检查源码的更改,commit_id_orginal commit_id_new可在git log输出中看到)
+	git format-patch -1 (获取补丁包)
