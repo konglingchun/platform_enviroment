@@ -21,6 +21,7 @@ sudo apt install -y gthumb webp
 sudo apt install -y tree
 sudo apt install -y htop
 sudo apt install -y stress
+sudo apt install -y fio
 sudo apt install -y iptux
 sudo apt install -y meld patch
 sudo apt install -y curl
