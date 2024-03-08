@@ -1,6 +1,45 @@
 ## 安装clang-format
 
-ubuntu环境下 sudo apt-get install clang-format
+ubuntu环境下
+
+```shell
+sudo apt-get install clang-format
+```
+
+## VSCode中下载内置的Clang-Format插件
+
+修改设置(直接搜索名称)
+
+Clang\_format\_fallback Style：Visual Studio
+
+Clang\_format\_path：
+
+```shell
+/home/walter/.vscode-server/extensions/ms-vscode.cpptools-1.15.4/LLVM/bin/clang-format
+```
+
+确认路径方法：
+
+```shell
+find ~/.vscode-server/extensions/ -name clang-format
+```
+
+Clang\_format\_style：file
+
+Default Formatter：C/C++
+
+Format on save: 勾选(如果电脑配置够的话，云主机此项不建议打开)
+
+
+
+空格设置
+
+```shell
+"editor.insertSpaces": true,
+"editor.detectIndentation": false,
+"editor.renderControlCharacters": true,
+"editor.renderWhitespace": "all",
+```
 
 ## 配置clang-format
 
@@ -19,7 +58,7 @@ AlignConsecutiveAssignments:  true
 AlignConsecutiveDeclarations:  true
 ```
 
-### 格式化
+## 格式化
 
 ```shell
 格式化指定文件：
