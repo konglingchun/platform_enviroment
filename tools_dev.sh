@@ -83,7 +83,7 @@ sudo apt install -y x11proto-core-dev lib32z-dev ccache libgl1-mesa-dev
 sudo apt install -y dos2unix doxygen doxygen-gui asciidoc latexmk graphviz graphviz-doc tofrodos bison flex gettext cpio xsltproc autopoint
 sudo apt install -y libxml2-utils libxml2-dev libxml-simple-perl libxml-parser-perl libswitch-perl 
 sudo apt install -y dpkg-dev libsdl1.2-dev
-sudo apt install -y libssl-dev libcurl4-openssl-dev libp11-dev
+sudo apt install -y libssl-dev libcurl4-openssl-dev libp11-dev libgnutls28-dev
 
 #android 相关工具
 sudo apt install -y android-sdk
