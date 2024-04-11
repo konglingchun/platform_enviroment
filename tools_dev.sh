@@ -28,7 +28,7 @@ sudo apt install -y curl
 sudo apt install -y wget
 sudo apt install -y axel
 sudo apt install -y gawk
-sudo apt install -y unace p7zip-rar tar unar rar sharutils arj lunzip lzip lzop zip unzip bzip2 libz-dev
+sudo apt install -y unace p7zip-rar tar unar rar sharutils arj lunzip lzip lzop zip unzip bzip2 libz-dev libzip-dev
 sudo apt install -y chromium-browser
 #sudo snap install freemind
 sudo snap install xmind
