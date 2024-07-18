@@ -37,6 +37,9 @@ sudo snap install xmind
 sudo apt install -y git gitg gitk git-gui git-review git-core subversion
 git config --global core.quotepath false
 
+# 网络工具
+sudo apt install -y traceroute inetutils-traceroute net-tools bridge-utils uml-utilities
+
 #日志查看
 sudo apt install -y lnav
 
@@ -48,13 +51,13 @@ sudo apt install -y cloc
 sudo apt install -y indent
 
 sudo apt install -y manpages-posix manpages-posix-dev glibc-doc
-sudo apt install -y inetutils-traceroute
-sudo apt install -y net-tools
 sudo apt install -y openssh-server openssh-client sshpass
 sudo apt install -y fd-find
 sudo ln -s /usr/lib/cargo/bin/fd /usr/bin/fd
 sudo apt install -y silversearcher-ag
 sudo apt install -y mtd-utils
+sudo apt install -y mtools
+
 #for uboot
 sudo apt install -y u-boot-tools
 
@@ -73,6 +76,8 @@ sudo apt install -y cmake cmake-gui extra-cmake-modules
 sudo apt install -y autoconf automake libtool
 sudo apt install -y gcc-arm-none-eabi
 sudo apt install -y gnupg gperf build-essential binutils libnuma-dev gcc-multilib g++-multilib m4 yasm
+
+sudo apt install -y libtool-bin
 
 sudo apt install -y libreadline-dev libreadline6-dev:i386
 sudo apt install -y zlib1g-dev zlib1g-dev:i386
