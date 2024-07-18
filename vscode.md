@@ -23,14 +23,18 @@
 
 ```shell
 {
-	"editor.mouseWheelZoom": true,
-	"editor.foldingMaximumRegions": 10000,
-	"editor.fontFamily": "'courier new'",
-	"editor.fontSize": 20,
-	"editor.mouseWheelZoom": true,
-	"editor.insertSpaces": false,
-	"editor.detectIndentation": true,
-	"cmake.configureOnOpen": false,
+    "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
+	"editor":{
+		"mouseWheelZoom":true,
+		"foldingMaximumRegions": 10000,
+		"fontFamily": "'courier new'",
+		"fontSize": 20,
+		"insertSpaces": false,
+		"detectIndentation": true,
+		"formatOnSave": false,
+		"largeFileOptimizations": false
+	},
+
 	"security.workspace.trust.untrustedFiles": "open",
 	"tabnine.experimentalAutoImports": true,
 	"gnuGlobal.autoUpdate": "Disabled",
@@ -41,80 +45,41 @@
 	"window.title": "${rootName}${separator}${dirty}${activeEditorLong}${separator}",
 	"glassit.alpha": 255,
 	"security.workspace.trust.enabled": false,
-	"java.imports.gradle.wrapper.checksums": [
-		{
-			"sha256": "66008236d4dd3eb81bf343b12a95350142ad85c996945ff2cbfdb14bde432498",
-			"allowed": true
-		},
-		{
-			"sha256": "ee3739525a995bcb5601621a6e2daec1f183bbefc375743acc235cec33547e04",
-			"allowed": true
-		},
-		{
-			"sha256": "e2b82129ab64751fd40437007bd2f7f2afb3c6e41a9198e628650b22d5824a14",
-			"allowed": true
-		}
-	],
 	"extensions.ignoreRecommendations": true,
 	"kite.showWelcomeNotificationOnStartup": false,
 	"redhat.telemetry.enabled": true,
-	"editor.largeFileOptimizations": false,
 	"workbench.editor.empty.hint": "hidden",
-	"[c]": {
-		"editor.defaultFormatter": "mjohns.clang-format"
-	},
 	"git.openRepositoryInParentFolders": "never",
 	"cmake.showOptionsMovedNotification": false,
+	"cmake.configureOnOpen": false,
+	"C_Cpp.clang_format_path": "/home/walter/.vscode/extensions/ms-vscode.cpptools-1.19.9-linux-x64/LLVM/bin/clang-format",
+	"clang-format.assumeFilename": "~/.clang-format",
+	"[c]": {
+		"editor.defaultFormatter": "xaver.clang-format"
+	},
+	"[cpp]": {
+		"editor.defaultFormatter": "xaver.clang-format"
+	},
+
+	"fileheader.configObj": {
+		"autoAdd": false 
+	},
+
+	"fileheader.cursorMode": {
+		"description": "", 
+		"param": "",
+		"return": ""
+	}
 }
 ```
 
 ## 安装插件
 
 ```shell
-MS-CEINTL.vscode-language-pack-zh-hans
-
-jaycetyle.vscode-gnu-global
-ms-vscode.cpptools
-ms-vscode.cpptools-extension-pack
 ajshort.include-autocomplete
-TabNine.tabnine-vscode
-VisualStudioExptTeam.intellicode-api-usage-examples
-VisualStudioExptTeam.vscodeintellicode
-uctakeoff.vscode-counter
-rsbondi.highlight-words
-mjohns.clang-format
-xaver.clang-format
-bukas.GBKtoUTF8
-Gruntfuggly.todo-tree
-cschlosser.doxdocgen
-twxs.cmake
-ms-vscode.cmake-tools
-ms-vscode.makefile-tools
-trond-snekvik.gnu-mapfiles
-
-mhutchie.git-graph
-donjayamanne.githistory
-eamodio.gitlens
-johnstoncode.svn-scm
-earshinov.filter-lines
-everettjf.filter-line
-
-ms-python.isort
-ms-python.python
-ms-python.vscode-pylance
-ms-toolsai.jupyter
-ms-toolsai.jupyter-renderers
-ms-toolsai.vscode-jupyter-cell-tags
-ms-toolsai.vscode-jupyter-slideshow
-mushan.vscode-paste-image
-
-redhat.java
-vscjava.vscode-java-debug
-vscjava.vscode-java-dependency
-vscjava.vscode-java-pack
-vscjava.vscode-java-test
-vscjava.vscode-maven
-yzhang.markdown-all-in-one
+alibaba-cloud.tongyi-lingma
+andyyaldoo.vscode-json
+bbenoist.doxygen
 bierner.github-markdown-preview
 bierner.markdown-checkbox
 bierner.markdown-emoji
@@ -122,12 +87,84 @@ bierner.markdown-footnotes
 bierner.markdown-mermaid
 bierner.markdown-preview-github-styles
 bierner.markdown-yaml-preamble
-DavidAnson.vscode-markdownlint
-mirone.milkdown
-
-eightHundreds.vscode-drawio
-purocean.drawio-preview
+bukas.gbktoutf8
+cschlosser.doxdocgen
+davidanson.vscode-markdownlint
+donjayamanne.githistory
+dotjoshjohnson.xml
+eamodio.gitlens
+earshinov.filter-lines
+eighthundreds.vscode-drawio
+equinusocio.vsc-material-theme
+equinusocio.vsc-material-theme-icons
+everettjf.filter-line
+exiahuang.dictionary
+github.github-vscode-theme
+github.vscode-pull-request-github
+gruntfuggly.todo-tree
+hediet.vscode-drawio
+jaycetyle.vscode-gnu-global
 jebbs.plantuml
+jeff-hykin.better-cpp-syntax
+johnstoncode.svn-scm
+kejun.devtoys
+mads-hartmann.bash-ide-vscode
+marus25.cortex-debug
+mcu-debug.debug-tracker-vscode
+mcu-debug.memory-view
+mcu-debug.peripheral-viewer
+mcu-debug.rtos-views
+mhutchie.git-graph
+microhobby.linuxkerneldev
+mirone.milkdown
+ms-ceintl.vscode-language-pack-zh-hans
+ms-python.debugpy
+ms-python.isort
+ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
+ms-toolsai.jupyter-keymap
+ms-toolsai.jupyter-renderers
+ms-toolsai.vscode-jupyter-cell-tags
+ms-toolsai.vscode-jupyter-slideshow
+ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
+ms-vscode-remote.remote-wsl
+ms-vscode.cmake-tools
+ms-vscode.cpptools
+ms-vscode.cpptools-extension-pack
+ms-vscode.cpptools-themes
+ms-vscode.makefile-tools
+ms-vscode.remote-explorer
+mushan.vscode-paste-image
+nordic-semiconductor.nrf-devicetree
+obkoro1.korofileheader
+plorefice.devicetree
+purocean.drawio-preview
+redhat.java
+redhat.vscode-xml
+rsbondi.highlight-words
+s-nlf-fh.glassit
+sailsxu.gtags
+shd101wyy.markdown-preview-enhanced
+tabnine.tabnine-vscode
+timonwong.shellcheck
+trond-snekvik.gnu-mapfiles
+twxs.cmake
+uctakeoff.vscode-counter
+visualstudioexptteam.intellicode-api-usage-examples
+visualstudioexptteam.vscodeintellicode
+vscjava.vscode-java-debug
+vscjava.vscode-java-dependency
+vscjava.vscode-java-pack
+vscjava.vscode-java-test
+vscjava.vscode-maven
+vscodevim.vim
+xaver.clang-format
+yzane.markdown-pdf
+yzhang.markdown-all-in-one
+zainchen.json
 ```
 
 ## VS Code文件观察程序的句柄达到上限
