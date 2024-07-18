@@ -15,13 +15,13 @@ Clang\_format\_fallback Style：Visual Studio
 Clang\_format\_path：
 
 ```shell
-/home/walter/.vscode-server/extensions/ms-vscode.cpptools-1.15.4/LLVM/bin/clang-format
+/home/walter/.vscode/extensions/ms-vscode.cpptools-1.19.9-linux-x64/LLVM/bin/clang-format
 ```
 
 确认路径方法：
 
 ```shell
-find ~/.vscode-server/extensions/ -name clang-format
+find ~/.vscode/extensions/ -name clang-format
 ```
 
 Clang\_format\_style：file
