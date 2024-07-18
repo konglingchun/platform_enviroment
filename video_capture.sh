@@ -4,8 +4,11 @@
 #这个版本不会出shutter不能编辑的问题
 sudo add-apt-repository ppa:linuxuprising/shutter
 sudo apt install -y shutter
- 
-#sudo apt install -y flameshot
+
+#flameshot
+sudo apt install -y flameshot
+#使用方法
+flameshot gui
 
 #录屏软件
 sudo apt install -y peek
