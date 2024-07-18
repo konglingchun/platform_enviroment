@@ -28,6 +28,10 @@ alias minicom="minicom -w -c on"
 alias unzip="unzip -O CP936"
 HIST_STAMPS="yyyy-mm-dd"
 alias history="fc -il 1"
+alias fd="fd -H -I -i"
+alias cp="advcp -g"
+alias mv="advmv -g"
+alias ls="exa"
 ```
 
 ## zsh git目录提速
