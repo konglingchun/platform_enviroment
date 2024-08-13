@@ -38,7 +38,7 @@ sudo apt install -y git gitg gitk git-gui git-review git-core subversion
 git config --global core.quotepath false
 
 # 网络工具
-sudo apt install -y traceroute inetutils-traceroute net-tools bridge-utils uml-utilities
+sudo apt install -y traceroute inetutils-traceroute net-tools ethtool bridge-utils uml-utilities
 
 #日志查看
 sudo apt install -y lnav
