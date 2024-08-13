@@ -73,3 +73,6 @@ sudo apt install toilet
 toilet [-f fontfile] [-F filter] [-w outputwidth] text
 ```
 
+## ascii flow
+
+[ascii flow](https://asciiflow.com/#/)
