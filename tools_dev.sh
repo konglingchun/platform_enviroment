@@ -56,7 +56,8 @@ sudo apt install -y fd-find
 sudo ln -s /usr/lib/cargo/bin/fd /usr/bin/fd
 sudo apt install -y silversearcher-ag
 sudo apt install -y nnn
-
+sudo apt install -y exa
+sudo apt install -y bat
 
 sudo apt install -y mtd-utils
 sudo apt install -y mtools
