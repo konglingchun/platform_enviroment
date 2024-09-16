@@ -20,13 +20,20 @@ GRUB_CMDLINE_LINUX_DEFAULT="fsck.mode=skip quiet splash"
 sudo update-grub
 ```
 
-# fix grub
+# fix grub(ubuntu)
 
 ```shell
 sudo add-apt-repository ppa:yannubuntu/boot-repair && sudo apt-get update&&sudo apt-get install -y boot-repair && boot-repair
 ```
 
-## grub命令行引导启动Windows
+or
+
+```shell
+grub-install /dev/nvme0
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+# fix grub(Windows)
 
 grub的几条核心命令
 
@@ -52,3 +59,4 @@ grub的几条核心命令
     chainloader /efi/Microsoft/Boot/bootmgfw.efi （可以用 ls 再确认一下这个路径）。
     boot
     （Tips： ls命令打印出来的分区名称，可能是”(hd*, gpt*)”，在我们键入分区时，这个gpt可以省略。）
+
