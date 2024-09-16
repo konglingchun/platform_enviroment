@@ -55,6 +55,9 @@ sudo apt install -y openssh-server openssh-client sshpass
 sudo apt install -y fd-find
 sudo ln -s /usr/lib/cargo/bin/fd /usr/bin/fd
 sudo apt install -y silversearcher-ag
+sudo apt install -y nnn
+
+
 sudo apt install -y mtd-utils
 sudo apt install -y mtools
 
@@ -73,7 +76,7 @@ sudo apt install -y golang-go
 
 sudo apt install -y scons
 sudo apt install -y cmake cmake-gui extra-cmake-modules
-sudo apt install -y autoconf automake libtool
+sudo apt install -y autoconf autoconf-archive automake libtool
 sudo apt install -y gcc-arm-none-eabi
 sudo apt install -y gnupg gperf build-essential binutils libnuma-dev gcc-multilib g++-multilib m4 yasm
 
@@ -89,6 +92,8 @@ sudo apt install -y dos2unix doxygen doxygen-gui asciidoc latexmk graphviz graph
 sudo apt install -y libxml2-utils libxml2-dev libxml-simple-perl libxml-parser-perl libswitch-perl 
 sudo apt install -y dpkg-dev libsdl1.2-dev
 sudo apt install -y libssl-dev libcurl4-openssl-dev libp11-dev libgnutls28-dev
+
+sudo apt install -y libgpiod-dev libevent-dev
 
 #android 相关工具
 sudo apt install -y android-sdk
