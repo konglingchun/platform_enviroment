@@ -8,7 +8,7 @@ sudo apt install -y shutter
 #flameshot
 sudo apt install -y flameshot
 #使用方法
-flameshot gui
+#flameshot gui
 
 #录屏软件
 sudo apt install -y peek
@@ -39,3 +39,6 @@ sudo apt install -y ffmpeg
 sudo apt install -y imagemagick imagej
 sudo apt install -y gimp
 sudo apt install -y pinta
+
+#播放器
+sudo apt install -y smplayer mplayer vlc
